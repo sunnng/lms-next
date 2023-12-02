@@ -1,6 +1,11 @@
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import { CircleDollarSign, LayoutDashboard, ListChecks } from "lucide-react";
+import {
+  CircleDollarSign,
+  File,
+  LayoutDashboard,
+  ListChecks,
+} from "lucide-react";
 
 import { db } from "@/lib/db";
 import { IconBadge } from "@/components/icon-badge";
@@ -83,11 +88,20 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
             <div>TODO:chapter</div>
           </div>
 
-          <div className="flex items-center gap-x-2">
-            <IconBadge icon={CircleDollarSign} />
-            <h2 className="text-xl">Sell your course</h2>
+          <div>
+            <div className="flex items-center gap-x-2">
+              <IconBadge icon={CircleDollarSign} />
+              <h2 className="text-xl">Sell your course</h2>
+            </div>
+            <PriceForm initialData={course} courseId={course.id} />
           </div>
-          <PriceForm initialData={course} courseId={course.id} />
+
+          <div>
+            <div className="flex items-center gap-x-2">
+              <IconBadge icon={File} />
+              <h2 className="text-xl">Sell your course</h2>
+            </div>
+          </div>
         </div>
       </div>
     </div>
